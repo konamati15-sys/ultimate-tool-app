@@ -1,11 +1,11 @@
 name: Build iOS App
 
 on:
-  workflow_dispatch: # ทำให้เรากดสั่งรันเองได้
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: macos-latest # สั่งให้ใช้เครื่อง Mac ประมวลผล
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build IPA (iOS App)
-        run: flet build ipa
+        run: yes | flet build ipa
 
       - name: Upload iOS App File
         uses: actions/upload-artifact@v4
